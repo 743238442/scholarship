@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复仇者联盟4：终局之战 - 神影视频</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa fa-film"></i> 神影视频
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">电影</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">电视剧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">动漫</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">综艺</a>
+                    </li>
+                </ul>
+                <!-- 搜索框 -->
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="搜索电影、电视剧..." aria-label="Search">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <!-- 登录/注册按钮 -->
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-light me-2">登录</a>
+                    <a href="register.html" class="btn btn-primary">注册</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要内容区 -->
+    <div class="container mt-5 pt-4">
+        <!-- 电影详情 -->
+        <div class="movie-detail-container">
+            <div class="movie-detail-header">
+                <!-- 电影海报 -->
+                <div class="movie-detail-poster">
+                    <img src="images/fuchou4.avif" alt="复仇者联盟4：终局之战">
+                </div>
+                <!-- 电影信息 -->
+                <div class="movie-detail-info">
+                    <h1 class="movie-detail-title">复仇者联盟4：终局之战</h1>
+                    <div class="movie-detail-meta">
+                        <span><i class="fa fa-star text-warning"></i> 9.2</span>
+                        <span>2019年</span>
+                        <span>美国</span>
+                        <span>科幻/动作/冒险</span>
+                        <span>181分钟</span>
+                    </div>
+                    <div class="movie-detail-meta mt-2">
+                        <span><strong>导演：</strong>安东尼·罗素, 乔·罗素</span>
+                    </div>
+                    <div class="movie-detail-meta">
+                        <span><strong>主演：</strong>小罗伯特·唐尼, 克里斯·埃文斯, 马克·鲁法洛, 克里斯·海姆斯沃斯, 斯嘉丽·约翰逊</span>
+                    </div>
+                    <div class="movie-detail-meta">
+                        <span><strong>类型：</strong>科幻, 动作, 冒险</span>
+                    </div>
+                    <div class="movie-detail-meta">
+                        <span><strong>语言：</strong>英语</span>
+                    </div>
+                    <div class="movie-detail-meta">
+                        <span><strong>上映日期：</strong>2019-04-24(中国大陆), 2019-04-26(美国)</span>
+                    </div>
+                    <div class="movie-detail-description mt-4">
+                        <strong>剧情简介：</strong>
+                        <p>灭霸用无限手套消灭了宇宙一半的生命后，复仇者联盟的剩余成员们必须找到方法逆转这场灾难。他们将穿越时空，收集无限宝石，与灭霸展开最终决战，为宇宙的命运而战。</p>
+                    </div>
+                    <div class="movie-detail-actions mt-5">
+                        <button class="btn btn-primary btn-lg">
+                            <i class="fa fa-play"></i> 立即播放
+                        </button>
+                        <button class="btn btn-outline-primary btn-lg" onclick="toggleFavorite(123)">
+                            <i class="fa fa-heart"></i> 收藏
+                        </button>
+                        <button class="btn btn-outline-primary btn-lg" onclick="shareMovie(123, 'weibo')">
+                            <i class="fa fa-share-alt"></i> 分享
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+
+            
+            <!-- 电影详情标签页 -->
+            <div class="mt-4">
+                <ul class="nav nav-tabs" id="movieDetailTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="synopsis-tab" data-bs-toggle="tab" data-bs-target="#synopsis" type="button" role="tab" aria-controls="synopsis" aria-selected="true" style="color: #ffc107;">剧情简介</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="cast-tab" data-bs-toggle="tab" data-bs-target="#cast" type="button" role="tab" aria-controls="cast" aria-selected="false" style="color: #ffc107;">演职员表</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="comments-tab" data-bs-toggle="tab" data-bs-target="#comments" type="button" role="tab" aria-controls="comments" aria-selected="false" style="color: #ffc107;">评论 (1256)</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="movieDetailTabsContent">
+                    <!-- 剧情简介 -->
+                    <div class="tab-pane fade show active" id="synopsis" role="tabpanel" aria-labelledby="synopsis-tab">
+                        <div class="p-4">
+                            <h4>剧情简介</h4>
+                            <p class="mt-3">灭霸用无限手套的力量，在弹指之间消灭了宇宙一半的生命。宇宙间各大星球的生命都随机消失，包括复仇者联盟的许多成员。幸存者们在悲痛中寻找希望，试图找到方法逆转这场灾难。</p>
+                            <p>五年后，斯科特·朗（蚁人）从量子领域返回，带来了时间旅行的可能性。复仇者联盟决定冒险尝试，通过量子领域回到过去，收集无限宝石，从而在现在重新拼合手套，逆转灭霸的所作所为。</p>
+                            <p>他们分成多个小组，前往不同的时间点收集宝石。然而，他们的行动并非一帆风顺，过去的灭霸发现了他们的计划，决定穿越到未来，彻底摧毁宇宙并重建一个新的宇宙。</p>
+                            <p>复仇者联盟与灭霸的军队展开了最终决战。在这场史诗般的战斗中，复仇者们团结一致，为了宇宙的命运而战。最终，钢铁侠托尼·斯塔克做出了牺牲，使用无限手套消灭了灭霸及其军队，拯救了宇宙。</p>
+                            <p>电影以钢铁侠的葬礼和美国队长归还无限宝石、选择留在过去与佩吉·卡特共度一生的结局收尾。宇宙恢复了和平，但复仇者联盟也迎来了新的篇章。</p>
+                        </div>
+                    </div>
+                    
+                    <!-- 演职员表 -->
+                    <div class="tab-pane fade" id="cast" role="tabpanel" aria-labelledby="cast-tab">
+                        <div class="p-4">
+                            <h4>导演</h4>
+                            <div class="row row-cols-2 row-cols-md-4 g-3 mt-3">
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/05.png" class="rounded-circle mb-2" alt="安东尼·罗素" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>安东尼·罗素</p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/06.png" class="rounded-circle mb-2" alt="乔·罗素" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>乔·罗素</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <h4 class="mt-5">主演</h4>
+                            <div class="row row-cols-2 row-cols-md-4 g-3 mt-3">
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/07.png" class="rounded-circle mb-2" alt="小罗伯特·唐尼" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>小罗伯特·唐尼<br><small>饰 钢铁侠</small></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/08.png" class="rounded-circle mb-2" alt="克里斯·埃文斯" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>克里斯·埃文斯<br><small>饰 美国队长</small></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/09.png" class="rounded-circle mb-2" alt="马克·鲁法洛" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>马克·鲁法洛<br><small>饰 绿巨人</small></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/10.jpg" class="rounded-circle mb-2" alt="克里斯·海姆斯沃斯" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>克里斯·海姆斯沃斯<br><small>饰 雷神</small></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/11.jpg" class="rounded-circle mb-2" alt="斯嘉丽·约翰逊" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>斯嘉丽·约翰逊<br><small>饰 黑寡妇</small></p>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="text-center">
+                                        <img src="images/12.jpg" class="rounded-circle mb-2" alt="杰瑞米·雷纳" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <p>杰瑞米·雷纳<br><small>饰 鹰眼</small></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 评论区 -->
+                    <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
+                        <div class="p-4">
+                            <!-- 发表评论 -->
+                            <div class="mb-5">
+                                <h4>发表评论</h4>
+                                <form class="mt-3">
+                                    <div class="mb-3">
+                                        <textarea class="form-control" rows="4" placeholder="写下你的评论..."></textarea>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary">发表评论</button>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <!-- 评论列表 -->
+                            <h4>观众评论</h4>
+                            <div class="comments-section mt-3">
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">漫威迷</span>
+                                        <span class="comment-time">2025-12-15 14:30</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        这是漫威电影宇宙的巅峰之作！剧情紧凑，特效震撼，情感真挚。钢铁侠的牺牲让我泪目，美国队长的结局也很圆满。复仇者联盟，永远的经典！
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">电影爱好者</span>
+                                        <span class="comment-time">2025-12-14 09:15</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        作为漫威十年的收官之作，这部电影没有让我失望。时间旅行的设定很巧妙，各个角色的结局都处理得很好。推荐给所有喜欢漫威的朋友！
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">小蜘蛛</span>
+                                        <span class="comment-time">2025-12-13 20:45</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        特效太棒了！特别是最终决战的场景，简直是视觉盛宴。不过钢铁侠的牺牲真的让我很难过，他是我最喜欢的超级英雄。
+                                    </div>
+                                </div>
+                                
+                                <div class="comment-item">
+                                    <div class="comment-header">
+                                        <span class="comment-author">复仇者</span>
+                                        <span class="comment-time">2025-12-12 16:20</span>
+                                    </div>
+                                    <div class="comment-content">
+                                        这部电影完美地结束了漫威电影宇宙的第三阶段。每个角色都有自己的高光时刻，特别是黑寡妇的牺牲也很感人。期待漫威的下一个十年！
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- 分页 -->
+                            <div class="mt-4 d-flex justify-content-center">
+                                <nav aria-label="Page navigation">
+                                    <ul class="pagination">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">上一页</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                        <li class="page-item"><a class="page-link" href="#">25</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">下一页</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 相关推荐 -->
+        <section class="mt-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title">相关推荐</h2>
+                <a href="#" class="more-link">更多 <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <!-- 电影卡片 -->
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/fchou3.avif" class="w-100" alt="复仇者联盟3">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">复仇者联盟3：无限战争</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.8
+                                </span>
+                                <span class="year">2018</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/gangtie3.jpg" class="w-100" alt="钢铁侠3">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">钢铁侠3</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 7.9
+                                </span>
+                                <span class="year">2013</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/meiguoduizhang.webp" class="w-100" alt="美国队长3">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">美国队长3：内战</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.2
+                                </span>
+                                <span class="year">2016</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/leishen.jpg" class="w-100" alt="雷神3">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">雷神3：诸神黄昏</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 7.4
+                                </span>
+                                <span class="year">2017</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-center py-3 border-top border-secondary">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="text-white me-4">关于我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">联系我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">网站地图</a>
+                <span class="text-light">|</span>
+                <a href="admin/index.html" class="text-white ms-4">后台管理</a>
+            </div>
+            <div class="mt-2 text-sm text-light">
+                <p class="mb-0">国家互联网监管中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义脚本 -->
+    <script src="js/main.js"></script>
+</body>
+</html>

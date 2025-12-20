@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神影视频 - 最新最全的影视资源平台</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- 自定义样式 -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa fa-film"></i> 神影视频
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">电影</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">电视剧</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">动漫</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">综艺</a>
+                    </li>
+                </ul>
+                <!-- 搜索框 -->
+                <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="搜索电影、电视剧..." aria-label="Search">
+                    <button class="btn btn-primary" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <!-- 登录/注册按钮 -->
+                <div class="d-flex">
+                    <a href="login.html" class="btn btn-light me-2">登录</a>
+                    <a href="register.html" class="btn btn-primary">注册</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 轮播图 -->
+    <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="images/10.jpg" class="d-block w-100" alt="电影推荐1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>复仇者联盟4：终局之战</h3>
+                    <p>漫威电影宇宙的终极篇章，复仇者们为了宇宙的命运而战</p>
+                    <a href="movie-detail.html" class="btn btn-primary">立即观看</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/11.jpg" class="d-block w-100" alt="电影推荐2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>流浪地球2</h3>
+                    <p>中国科幻电影的里程碑之作，探索人类文明的未来</p>
+                    <a href="movie-detail.html" class="btn btn-primary">立即观看</a>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="images/12.png" class="d-block w-100" alt="电影推荐3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h3>星际穿越</h3>
+                    <p>诺兰导演的科幻巨作，探索时空与爱的真谛</p>
+                    <a href="movie-detail.html" class="btn btn-primary">立即观看</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+    <!-- 主要内容区 -->
+    <div class="container mt-5">
+        <!-- 分类导航 -->
+        <div class="category-nav mb-4">
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <a href="#" class="category-item text-center">
+                        <div class="category-icon bg-primary">
+                            <i class="fa fa-film"></i>
+                        </div>
+                        <p class="mt-2">电影</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="category-item text-center">
+                        <div class="category-icon bg-success">
+                            <i class="fa fa-television"></i>
+                        </div>
+                        <p class="mt-2">电视剧</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="category-item text-center">
+                        <div class="category-icon bg-warning">
+                            <i class="fa fa-child"></i>
+                        </div>
+                        <p class="mt-2">动漫</p>
+                    </a>
+                </div>
+                <div class="col-6 col-md-3">
+                    <a href="#" class="category-item text-center">
+                        <div class="category-icon bg-danger">
+                            <i class="fa fa-music"></i>
+                        </div>
+                        <p class="mt-2">综艺</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 热门推荐 -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title">热门推荐</h2>
+                <a href="#" class="more-link">更多 <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <!-- 电影卡片 -->
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/04.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">复仇者联盟4：终局之战</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.2
+                                </span>
+                                <span class="year">2019</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/05.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">流浪地球2</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.5
+                                </span>
+                                <span class="year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/06.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">星际穿越</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.4
+                                </span>
+                                <span class="year">2014</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/07.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">盗梦空间</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.3
+                                </span>
+                                <span class="year">2010</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 最新上映 -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title">最新上映</h2>
+                <a href="#" class="more-link">更多 <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <!-- 电影卡片 -->
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/03.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">奥本海默</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.8
+                                </span>
+                                <span class="year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/09.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">芭比</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 7.3
+                                </span>
+                                <span class="year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/08.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">银河护卫队3</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.5
+                                </span>
+                                <span class="year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/11.jpg" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">蜘蛛侠：纵横宇宙</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 8.6
+                                </span>
+                                <span class="year">2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 高分电影 -->
+        <section class="mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <h2 class="section-title">高分电影</h2>
+                <a href="#" class="more-link">更多 <i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <!-- 电影卡片 -->
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/xiaoshukedejiushu.jpg" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">肖申克的救赎</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.7
+                                </span>
+                                <span class="year">1994</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/02.png" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">蚁人</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.6
+                                </span>
+                                <span class="year">1993</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/aganzhengzhuan.jpg" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">阿甘正传</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.5
+                                </span>
+                                <span class="year">1994</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="movie-card">
+                        <div class="movie-poster">
+                            <img src="images/taitannike.webp" class="w-100" alt="电影海报">
+                            <div class="movie-overlay">
+                                <a href="movie-detail.html" class="btn btn-play">
+                                    <i class="fa fa-play-circle"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="movie-info">
+                            <h5 class="movie-title">泰坦尼克号</h5>
+                            <div class="movie-meta">
+                                <span class="rating">
+                                    <i class="fa fa-star text-warning"></i> 9.4
+                                </span>
+                                <span class="year">1997</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-center py-3 border-top border-secondary">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="text-white me-4">关于我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">联系我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">网站地图</a>
+                <span class="text-light">|</span>
+                <a href="admin/index.html" class="text-white ms-4">后台管理</a>
+            </div>
+            <div class="mt-2 text-sm text-light">
+                <p class="mb-0">国家互联网监管中心</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义脚本 -->
+    <script src="js/main.js"></script>
+</body>
+</html>
