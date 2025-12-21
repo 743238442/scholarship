@@ -9,7 +9,235 @@
     <!-- Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- 自定义样式 -->
-    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* 基础样式 */
+        body {
+            padding-top: 70px;
+            background-color: #f8f9fa;
+        }
+
+        a{
+            text-decoration: none;
+        }
+
+        .nav-link:hover {
+            color: #ffc107 !important;
+        }  
+        
+        /* 分类导航样式 */
+        .category-item {
+            display: block;
+            text-decoration: none;
+            color: #333;
+            padding: 15px 10px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            color: #0d6efd;
+        }
+        
+        .category-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            color: white;
+            font-size: 24px;
+        }
+        
+        /* 电影卡片样式 */
+        .movie-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            height: 100%;
+        }
+        
+        .movie-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .movie-poster {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .movie-poster img {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .movie-card:hover .movie-poster img {
+            transform: scale(1.05);
+        }
+        
+        .movie-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .movie-poster:hover .movie-overlay {
+            opacity: 1;
+        }
+        
+        .btn-play {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.9);
+            color: #0d6efd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-play:hover {
+            background-color: #0d6efd;
+            color: white;
+            transform: scale(1.1);
+        }
+        
+        .movie-info {
+            padding: 10px;
+        }
+        
+        .movie-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .movie-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* 章节标题样式 */
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 3px;
+            background-color: #0d6efd;
+        }
+        
+        .more-link {
+            color: #0d6efd;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        
+        .more-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* 搜索结果样式 */
+        #searchResults {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .search-result-header {
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-keyword {
+            color: #0d6efd;
+            font-weight: 600;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px 20px;
+            color: #666;
+        }
+        
+        .no-results i {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #ccc;
+        }
+        
+        /* 搜索建议下拉框 */
+        .search-suggestions {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: white;
+            border: 1px solid #eee;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-height: 300px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        .search-suggestion-item {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .search-suggestion-item:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .search-suggestion-item.active {
+            background-color: #e9ecef;
+        }
+        
+        .search-container {
+            position: relative;
+            width: 300px;
+        }
+    </style>
 </head>
 <body>
     <!-- 导航栏 -->
@@ -39,13 +267,24 @@
                         <a class="nav-link" href="#">综艺</a>
                     </li>
                 </ul>
-                <!-- 搜索框 -->
-                <form class="d-flex me-3">
-                    <input class="form-control me-2" type="search" placeholder="搜索电影、电视剧..." aria-label="Search">
-                    <button class="btn btn-primary" type="submit">
+                <!-- 搜索框 - 重构版 -->
+                <div class="d-flex me-3">
+                    <!-- <select id="searchType" class="form-select">
+                        <option value="all">全部</option>
+                        <option value="movies">电影</option>
+                        <option value="tv">电视剧</option>
+                        <option value="anime">动漫</option>
+                        <option value="variety">综艺</option>
+                    </select> -->
+                    <div class="search-container" style="margin-right: 10px;">
+                        <input id="searchInput" class="form-control" type="search" placeholder="搜索电影、电视剧..." aria-label="Search">
+                        <!-- 搜索建议下拉框 -->
+                        <div id="searchSuggestions" class="search-suggestions"></div>
+                    </div>
+                    <button id="searchButton" class="btn btn-primary">
                         <i class="fa fa-search"></i>
                     </button>
-                </form>
+                </div>
                 <!-- 登录/注册按钮 -->
                 <div class="d-flex">
                     <a href="login.html" class="btn btn-light me-2">登录</a>
@@ -56,7 +295,7 @@
     </nav>
 
     <!-- 轮播图 -->
-    <div id="carouselExampleIndicators" class="carousel slide mt-5" data-bs-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="margin-top: -70px; padding-top: 70px; margin-bottom: 0;">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -98,8 +337,19 @@
         </button>
     </div>
 
+    <!-- 搜索结果区域 -->
+    <div id="searchResults" class="container">
+        <div class="search-result-header">
+            <h3>搜索结果：<span id="searchKeywordDisplay" class="search-keyword"></span></h3>
+            <p id="resultCount"></p>
+        </div>
+        <div id="searchResultContent" class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+            <!-- 搜索结果会动态填充到这里 -->
+        </div>
+    </div>
+
     <!-- 主要内容区 -->
-    <div class="container mt-5">
+    <div id="mainContent" class="container mt-5">
         <!-- 分类导航 -->
         <div class="category-nav mb-4">
             <div class="row g-3">
@@ -437,14 +687,288 @@
                 <a href="admin/index.html" class="text-white ms-4">后台管理</a>
             </div>
             <div class="mt-2 text-sm text-light">
-                <p class="mb-0">国家互联网监管中心</p>
+                <p class="mb-0">作者：软件工程（专升本）A 梁敏诗</p>
             </div>
         </div>
     </footer>
 
     <!-- Bootstrap 5 JS -->
-    <script src="dist/js/bootstrap.bundle.min.js"></script>
-    <!-- 自定义脚本 -->
-    <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 搜索功能脚本 -->
+    <script>
+        // 电影数据
+        const movies = [
+            {
+                title: "复仇者联盟4：终局之战",
+                poster: "images/04.png",
+                rating: 9.2,
+                year: 2019
+            },
+            {
+                title: "流浪地球2",
+                poster: "images/05.png",
+                rating: 8.5,
+                year: 2023
+            },
+            {
+                title: "星际穿越",
+                poster: "images/06.png",
+                rating: 9.4,
+                year: 2014
+            },
+            {
+                title: "盗梦空间",
+                poster: "images/07.png",
+                rating: 9.3,
+                year: 2010
+            },
+            {
+                title: "奥本海默",
+                poster: "images/03.png",
+                rating: 8.8,
+                year: 2023
+            },
+            {
+                title: "芭比",
+                poster: "images/09.png",
+                rating: 7.3,
+                year: 2023
+            },
+            {
+                title: "银河护卫队3",
+                poster: "images/08.png",
+                rating: 8.5,
+                year: 2023
+            },
+            {
+                title: "蜘蛛侠：纵横宇宙",
+                poster: "images/11.jpg",
+                rating: 8.6,
+                year: 2023
+            },
+            {
+                title: "肖申克的救赎",
+                poster: "images/xiaoshukedejiushu.jpg",
+                rating: 9.7,
+                year: 1994
+            },
+            {
+                title: "蚁人",
+                poster: "images/02.png",
+                rating: 9.6,
+                year: 1993
+            },
+            {
+                title: "阿甘正传",
+                poster: "images/aganzhengzhuan.jpg",
+                rating: 9.5,
+                year: 1994
+            },
+            {
+                title: "泰坦尼克号",
+                poster: "images/taitannike.webp",
+                rating: 9.4,
+                year: 1997
+            }
+        ];
+
+        // DOM 元素
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+        const searchSuggestions = document.getElementById('searchSuggestions');
+        const searchResults = document.getElementById('searchResults');
+        const searchKeywordDisplay = document.getElementById('searchKeywordDisplay');
+        const resultCount = document.getElementById('resultCount');
+        const searchResultContent = document.getElementById('searchResultContent');
+        const mainContent = document.getElementById('mainContent');
+
+        // 搜索功能
+        function searchMovies(keyword) {
+            // 清空之前的搜索结果
+            searchResultContent.innerHTML = '';
+            
+            // 如果关键词为空，显示主内容，隐藏搜索结果
+            if (!keyword.trim()) {
+                searchResults.style.display = 'none';
+                mainContent.style.display = 'block';
+                return;
+            }
+            
+            // 过滤匹配的电影
+            const keywordLower = keyword.toLowerCase().trim();
+            const matchedMovies = movies.filter(movie => 
+                movie.title.toLowerCase().includes(keywordLower)
+            );
+            
+            // 更新搜索关键词显示
+            searchKeywordDisplay.textContent = keyword;
+            
+            // 显示搜索结果，隐藏主内容
+            searchResults.style.display = 'block';
+            mainContent.style.display = 'none';
+            
+            // 更新结果数量
+            resultCount.textContent = `找到 ${matchedMovies.length} 个相关结果`;
+            
+            // 显示匹配的电影
+            if (matchedMovies.length > 0) {
+                matchedMovies.forEach(movie => {
+                    const movieCard = createMovieCard(movie);
+                    searchResultContent.appendChild(movieCard);
+                });
+            } else {
+                // 没有找到结果
+                searchResultContent.innerHTML = `
+                    <div class="no-results col-12">
+                        <i class="fa fa-film"></i>
+                        <h4>没有找到相关的电影</h4>
+                        <p>请尝试使用其他关键词搜索</p>
+                    </div>
+                `;
+            }
+            
+            // 滚动到搜索结果
+            searchResults.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // 创建电影卡片
+        function createMovieCard(movie) {
+            const col = document.createElement('div');
+            col.className = 'col';
+            
+            col.innerHTML = `
+                <div class="movie-card">
+                    <div class="movie-poster">
+                        <img src="${movie.poster}" class="w-100" alt="${movie.title}">
+                        <div class="movie-overlay">
+                            <a href="movie-detail.html" class="btn btn-play">
+                                <i class="fa fa-play-circle"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="movie-info">
+                        <h5 class="movie-title">${movie.title}</h5>
+                        <div class="movie-meta">
+                            <span class="rating">
+                                <i class="fa fa-star text-warning"></i> ${movie.rating}
+                            </span>
+                            <span class="year">${movie.year}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            return col;
+        }
+
+        // 生成搜索建议
+        function generateSearchSuggestions(keyword) {
+            searchSuggestions.innerHTML = '';
+            
+            if (!keyword.trim()) {
+                searchSuggestions.style.display = 'none';
+                return;
+            }
+            
+            const keywordLower = keyword.toLowerCase().trim();
+            const suggestions = movies
+                .filter(movie => movie.title.toLowerCase().includes(keywordLower))
+                .slice(0, 8); // 最多显示8个建议
+            
+            if (suggestions.length > 0) {
+                suggestions.forEach(movie => {
+                    const item = document.createElement('div');
+                    item.className = 'search-suggestion-item';
+                    item.textContent = movie.title;
+                    item.dataset.title = movie.title;
+                    
+                    // 点击建议项进行搜索
+                    item.addEventListener('click', () => {
+                        searchInput.value = movie.title;
+                        searchMovies(movie.title);
+                        searchSuggestions.style.display = 'none';
+                    });
+                    
+                    searchSuggestions.appendChild(item);
+                });
+                
+                searchSuggestions.style.display = 'block';
+            } else {
+                searchSuggestions.style.display = 'none';
+            }
+        }
+
+        // 事件监听
+        // 搜索按钮点击
+        searchButton.addEventListener('click', () => {
+            searchMovies(searchInput.value);
+            searchSuggestions.style.display = 'none';
+        });
+
+        // 输入框回车搜索
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchMovies(searchInput.value);
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        // 输入框输入时生成搜索建议
+        searchInput.addEventListener('input', () => {
+            generateSearchSuggestions(searchInput.value);
+        });
+
+        // 输入框获得焦点时生成建议
+        searchInput.addEventListener('focus', () => {
+            if (searchInput.value.trim()) {
+                generateSearchSuggestions(searchInput.value);
+            }
+        });
+
+        // 点击页面其他地方关闭搜索建议
+        document.addEventListener('click', (e) => {
+            if (!searchInput.contains(e.target) && !searchSuggestions.contains(e.target)) {
+                searchSuggestions.style.display = 'none';
+            }
+        });
+
+        // 键盘导航搜索建议
+        let currentSuggestionIndex = -1;
+        searchInput.addEventListener('keydown', (e) => {
+            const suggestionItems = searchSuggestions.querySelectorAll('.search-suggestion-item');
+            
+            if (suggestionItems.length === 0) return;
+            
+            switch(e.key) {
+                case 'ArrowDown':
+                    e.preventDefault();
+                    currentSuggestionIndex = (currentSuggestionIndex + 1) % suggestionItems.length;
+                    updateActiveSuggestion(suggestionItems);
+                    break;
+                case 'ArrowUp':
+                    e.preventDefault();
+                    currentSuggestionIndex = (currentSuggestionIndex - 1 + suggestionItems.length) % suggestionItems.length;
+                    updateActiveSuggestion(suggestionItems);
+                    break;
+                case 'Escape':
+                    searchSuggestions.style.display = 'none';
+                    currentSuggestionIndex = -1;
+                    break;
+            }
+        });
+
+        // 更新激活的搜索建议
+        function updateActiveSuggestion(items) {
+            items.forEach((item, index) => {
+                if (index === currentSuggestionIndex) {
+                    item.classList.add('active');
+                    searchInput.value = item.dataset.title;
+                    item.scrollIntoView({ block: 'nearest' });
+                } else {
+                    item.classList.remove('active');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
