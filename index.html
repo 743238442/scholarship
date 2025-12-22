@@ -19,8 +19,9 @@
         a{
             text-decoration: none;
         }
-
-        .nav-link:hover {
+        
+        /* 导航栏链接悬停样式 */
+        .navbar-nav .nav-link:hover {
             color: #ffc107 !important;
         }  
         
@@ -237,6 +238,20 @@
             position: relative;
             width: 300px;
         }
+        
+        /* 响应式登录/注册按钮顶部间隔 */
+        @media (max-width: 991px) {
+            .navbar-collapse .d-flex:last-child {
+                margin-top: 15px;
+                padding-top: 10px;
+                border-top: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+        
+        /* 导航栏链接悬停颜色 */
+        .navbar-nav .nav-link:hover {
+            color: #ffc107 !important;
+        }
     </style>
 </head>
 <body>
@@ -399,7 +414,7 @@
                 <div class="col">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="images/04.png" class="w-100" alt="电影海报">
+                            <img src="images/fuchou4.avif" class="w-100" alt="电影海报">
                             <div class="movie-overlay">
                                 <a href="movie-detail.html" class="btn btn-play">
                                     <i class="fa fa-play-circle"></i>
@@ -420,7 +435,7 @@
                 <div class="col">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="images/05.png" class="w-100" alt="电影海报">
+                            <img src="images/09.png" class="w-100" alt="电影海报">
                             <div class="movie-overlay">
                                 <a href="movie-detail.html" class="btn btn-play">
                                     <i class="fa fa-play-circle"></i>
@@ -441,7 +456,7 @@
                 <div class="col">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="images/06.png" class="w-100" alt="电影海报">
+                            <img src="images/13.jpg" class="w-100" alt="电影海报">
                             <div class="movie-overlay">
                                 <a href="movie-detail.html" class="btn btn-play">
                                     <i class="fa fa-play-circle"></i>
@@ -515,7 +530,7 @@
                 <div class="col">
                     <div class="movie-card">
                         <div class="movie-poster">
-                            <img src="images/09.png" class="w-100" alt="电影海报">
+                            <img src="images/zhizhuxia.jpg" class="w-100" alt="电影海报">
                             <div class="movie-overlay">
                                 <a href="movie-detail.html" class="btn btn-play">
                                     <i class="fa fa-play-circle"></i>
@@ -523,7 +538,7 @@
                             </div>
                         </div>
                         <div class="movie-info">
-                            <h5 class="movie-title">芭比</h5>
+                            <h5 class="movie-title">蜘蛛侠3</h5>
                             <div class="movie-meta">
                                 <span class="rating">
                                     <i class="fa fa-star text-warning"></i> 7.3

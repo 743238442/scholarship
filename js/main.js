@@ -12,15 +12,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // 搜索功能
-    const searchForm = document.querySelector('form.d-flex');
-    if (searchForm) {
-        searchForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            const searchTerm = this.querySelector('input').value;
-            if (searchTerm.trim()) {
-                alert(`搜索: ${searchTerm}`);
-                // 实际项目中可以跳转到搜索结果页
-                // window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}`;
+    const searchInput = document.getElementById('searchInput');
+    const searchType = document.getElementById('searchType');
+    const searchButton = document.getElementById('searchButton');
+    
+    function performSearch() {
+        const searchTerm = searchInput.value;
+        const type = searchType.value;
+        if (searchTerm.trim()) {
+            // 获取类型名称
+            const typeNames = {
+                'all': '全部',
+                'movies': '电影',
+                'tv': '电视剧',
+                'anime': '动漫',
+                'variety': '综艺'
+            };
+            const typeName = typeNames[type] || '全部';
+            alert(`在${typeName}中搜索: ${searchTerm}`);
+            // 实际项目中可以跳转到搜索结果页
+            // window.location.href = `search.html?q=${encodeURIComponent(searchTerm)}&type=${type}`;
+        }
+    }
+    
+    // 点击搜索按钮
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+    
+    // 按下回车键
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                performSearch();
             }
         });
     }

@@ -24,6 +24,38 @@ a:hover {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* 搜索框样式 */
+.search-container {
+    position: relative;
+    display: inline-block;
+}
+
+.search-container .form-control {
+    width: 300px;
+    border-radius: 25px 0 0 25px;
+    border-right: none;
+}
+
+.search-container + .btn-primary {
+    border-radius: 0 25px 25px 0;
+    border-left: none;
+}
+
+/* 搜索筛选下拉框样式 */
+.search-container select {
+    border: 1px solid #ced4da;
+    border-right: none;
+    border-radius: 25px 0 0 25px;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    background-color: #fff;
+    background-clip: padding-box;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: bold;
@@ -218,6 +250,20 @@ a:hover {
     align-items: center;
     font-size: 0.85rem;
     color: #6c757d;
+}
+
+/* 响应式登录/注册按钮顶部间隔 */
+@media (max-width: 991px) {
+    .navbar-collapse .d-flex:last-child {
+        margin-top: 15px;
+        padding-top: 10px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* 导航栏链接悬停颜色 */
+.navbar-nav .nav-link:hover {
+    color: #ffc107 !important;
 }
 
 .rating {

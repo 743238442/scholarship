@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>后台管理 - 神影视频</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <!-- 自定义样式 -->
+    <link href="../css/style.css" rel="stylesheet">
+</head>
+<body class="admin">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- 侧边导航栏 -->
+            <div class="col-md-3 col-lg-2 admin-sidebar">
+                <h3><i class="fa fa-film"></i> 神影管理</h3>
+                <ul class="admin-menu">
+                    <li>
+                        <a href="index.html" class="active">
+                            <i class="fa fa-dashboard"></i> 仪表盘
+                        </a>
+                    </li>
+                    <li>
+                        <a href="movies.html">
+                            <i class="fa fa-film"></i> 电影管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-television"></i> 电视剧管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-child"></i> 动漫管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-music"></i> 综艺管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-users"></i> 用户管理
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-comments"></i> 评论管理
+                        </a>
+                    </li>
+                    <!-- <li>
+                        <a href="#">
+                            <i class="fa fa-bar-chart"></i> 统计分析
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-cog"></i> 系统设置
+                        </a>
+                    </li> -->
+                    <li class="admin-home-link">
+                        <a href="../index.html">
+                            <i class="fa fa-home"></i> 返回首页
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- 主内容区 -->
+            <div class="col-md-9 col-lg-10 admin-content">
+                <!-- 顶部导航 -->
+                <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+                    <div class="container-fluid">
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#adminNavbar">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="adminNavbar">
+                            <ul class="navbar-nav ms-auto">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="adminUserDropdown" role="button" data-bs-toggle="dropdown">
+                                        <i class="fa fa-user-circle-o"></i> 管理员
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-end">
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-user"></i> 个人中心</a></li>
+                                        <li><a class="dropdown-item" href="#"><i class="fa fa-cog"></i> 账户设置</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" href="../login.html"><i class="fa fa-sign-out"></i> 退出登录</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </nav> -->
+                
+                <!-- 页面标题 -->
+                <div class="admin-header">
+                    <h2>欢迎回来，管理员</h2>
+                    <div class="text-muted">
+                        <i class="fa fa-calendar"></i> 今天是 2025年12月17日
+                    </div>
+                </div>
+                
+                <!-- 统计卡片 -->
+                <div class="row g-3 mb-4">
+                    <div class="col-md-3">
+                        <div class="card bg-primary text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="card-title">1,234</h3>
+                                        <p class="card-text">电影总数</p>
+                                    </div>
+                                    <div class="icon-circle bg-white bg-opacity-25">
+                                        <i class="fa fa-film fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-primary bg-opacity-25">
+                                <a href="movies.html" class="text-white text-decoration-none">
+                                    查看详情 <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="card-title">56,789</h3>
+                                        <p class="card-text">注册用户</p>
+                                    </div>
+                                    <div class="icon-circle bg-white bg-opacity-25">
+                                        <i class="fa fa-users fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-success bg-opacity-25">
+                                <a href="#" class="text-white text-decoration-none">
+                                    查看详情 <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="card-title">123,456</h3>
+                                        <p class="card-text">本月访问量</p>
+                                    </div>
+                                    <div class="icon-circle bg-white bg-opacity-25">
+                                        <i class="fa fa-eye fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-warning bg-opacity-25">
+                                <a href="#" class="text-white text-decoration-none">
+                                    查看详情 <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <h3 class="card-title">456</h3>
+                                        <p class="card-text">待处理评论</p>
+                                    </div>
+                                    <div class="icon-circle bg-white bg-opacity-25">
+                                        <i class="fa fa-comments fa-3x"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-footer bg-danger bg-opacity-25">
+                                <a href="#" class="text-white text-decoration-none">
+                                    查看详情 <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 图表和数据 -->
+                <div class="row g-3 mb-4">
+                    <!-- 电影分类统计 -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">电影分类统计</h5>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="movieCategoryChart" width="400" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 最近活动 -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">最近活动</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fa fa-user-plus text-success me-2"></i>
+                                                <strong>新用户注册</strong> - 用户 "testuser123" 注册成功
+                                            </div>
+                                            <span class="text-muted">2分钟前</span>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fa fa-film text-primary me-2"></i>
+                                                <strong>新电影添加</strong> - "奥本海默" 已添加到系统
+                                            </div>
+                                            <span class="text-muted">15分钟前</span>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fa fa-comments text-warning me-2"></i>
+                                                <strong>新评论</strong> - 用户评论了 "复仇者联盟4"
+                                            </div>
+                                            <span class="text-muted">1小时前</span>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fa fa-star text-warning me-2"></i>
+                                                <strong>电影评分</strong> - 用户给 "流浪地球2" 评分 9.2
+                                            </div>
+                                            <span class="text-muted">2小时前</span>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div>
+                                                <i class="fa fa-film text-danger me-2"></i>
+                                                <strong>电影更新</strong> - "盗梦空间" 信息已更新
+                                            </div>
+                                            <span class="text-muted">3小时前</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 快捷操作 -->
+                <div class="row g-3">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">快捷操作</h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="row g-3">
+                                    <div class="col-md-3">
+                                        <a href="movies.html" class="btn btn-primary btn-lg w-100">
+                                            <i class="fa fa-plus-circle"></i> 添加电影
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#" class="btn btn-success btn-lg w-100">
+                                            <i class="fa fa-upload"></i> 批量导入
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#" class="btn btn-warning btn-lg w-100">
+                                            <i class="fa fa-download"></i> 导出数据
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#" class="btn btn-danger btn-lg w-100">
+                                            <i class="fa fa-trash"></i> 清理缓存
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <!-- <footer class="bg-dark text-center py-3 border-top border-secondary">
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" class="text-white me-4">关于我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">联系我们</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white mx-4">网站地图</a>
+                <span class="text-light">|</span>
+                <a href="#" class="text-white ms-4">友情链接</a>
+            </div>
+            <div class="mt-2 text-sm text-light">
+                <p class="mb-0">国家互联网监管中心</p>
+            </div>
+        </div>
+    </footer> -->
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 自定义脚本 -->
+    <script src="../js/main.js"></script>
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 电影分类统计图表
+            const categoryCtx = document.getElementById('movieCategoryChart').getContext('2d');
+            const categoryChart = new Chart(categoryCtx, {
+                type: 'pie',
+                data: {
+                    labels: ['科幻', '动作', '喜剧', '爱情', '恐怖', '剧情', '动画'],
+                    datasets: [{
+                        data: [25, 20, 15, 12, 8, 15, 5],
+                        backgroundColor: [
+                            '#0d6efd',
+                            '#dc3545',
+                            '#ffc107',
+                            '#d63384',
+                            '#fd7e14',
+                            '#20c997',
+                            '#6f42c1'
+                        ],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'right',
+                        },
+                        title: {
+                            display: true,
+                            text: '电影分类占比'
+                        }
+                    }
+                }
+            });
+            
+            // 模拟实时数据更新
+            setInterval(function() {
+                // 更新最近活动时间
+                const timeElements = document.querySelectorAll('.list-group-item span.text-muted');
+                timeElements.forEach(function(element) {
+                    const timeText = element.textContent;
+                    if (timeText.includes('分钟前')) {
+                        const minutes = parseInt(timeText);
+                        element.textContent = (minutes + 1) + '分钟前';
+                    }
+                });
+            }, 60000); // 每分钟更新一次
+        });
+    </script>
+</body>
+</html>
